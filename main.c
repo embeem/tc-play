@@ -197,6 +197,7 @@ main(int argc, char *argv[])
 			create_vol = 1;
 			break;
 		case 'd':
+			if (sflag) usage();
 			dev = optarg;
 			break;
 		case 'e':
@@ -219,8 +220,10 @@ main(int argc, char *argv[])
 			map_name = optarg;
 			break;
 		case 's':
+			if (dev) usage();
 			sflag = 1;
 			sys_dev = optarg;
+			dev = optarg;
 			break;
 		case 'v':
 			printf("tcplay v%d.%d\n", MAJ_VER, MIN_VER);

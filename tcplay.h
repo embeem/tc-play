@@ -29,7 +29,7 @@
 
 /* Version of tcplay */
 #define MAJ_VER			0
-#define MIN_VER			10
+#define MIN_VER			9
 
 
 #define MAX_BLKSZ		4096
@@ -188,7 +188,7 @@ int tc_play_init(void);
 void tc_log(int err, const char *fmt, ...);
 void print_info(struct tcplay_info *info);
 int adjust_info(struct tcplay_info *info, struct tcplay_info *hinfo);
-int process_hdr(const char *dev, int sflag, unsigned char *pass, int passlen,
+int process_hdr(const char *dev, unsigned char *pass, int passlen,
     struct tchdr_enc *ehdr, struct tcplay_info **pinfo);
 int create_volume(const char *dev, int hidden, const char *keyfiles[],
     int nkeyfiles, const char *h_keyfiles[], int n_hkeyfiles,
@@ -206,7 +206,7 @@ int map_volume(const char *map_name, const char *device, int sflag,
     int nkeyfiles, const char *h_keyfiles[], int n_hkeyfiles,
     char *passphrase, char *passphrase_hidden, int interactive, int retries,
     time_t timeout);
-int dm_setup(const char *mapname, struct tcplay_info *info);
+int dm_setup(const char *mapname, struct tcplay_info *info, int sflag);
 int dm_teardown(const char *mapname, const char *device);
 
 typedef void(*summary_fn_t)(void);
